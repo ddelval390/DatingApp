@@ -1,18 +1,39 @@
 <div class="container mt-5">
-    <div *ngIf="!registerMode" style='text-align: center'>
-        <h1>Find your match</h1>
-        <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
-        <div class="text-center">
-            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
-            <button class="btn btn-info btn-lg ">Learn more</button>
-        </div>
+  <div *ngIf="!registerMode" style="text-align: center">
+    <h1>Find your match</h1>
+    <p class="lead">
+      Come on in to view your matches... All you need to do is sign up!
+    </p>
+    <p>
+      <strong
+        >Note: It is recommended to use two seperate browsers (ie: Chrome and
+        Firefox) when using the communication features</strong
+      >
+      <br>
+      You can register or choose a demo account below. Feel free to login as
+      other users you find by using their name as a username and Pa$$w0rd as the
+      password. (For example: name: Lawson username:lawson)
+    </p>
+    <div class="text-center">
+      <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">
+        Register
+      </button>
+      <button class="btn btn-info btn-lg mr-2" (click)="loginAsLawson()">
+        Demo as member Lawson
+      </button>
+      <button class="btn btn-info btn-lg mr-2" (click)="loginAsEnid()">
+        Demo as member Enid
+      </button>
     </div>
+  </div>
 
-    <div *ngIf="registerMode" class="container">
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
-            </div>
-        </div>
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register
+          (cancelRegister)="cancelRegisterMode($event)"
+        ></app-register>
+      </div>
     </div>
+  </div>
 </div>

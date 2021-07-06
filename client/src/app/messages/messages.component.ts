@@ -10,7 +10,7 @@ import { MessageService } from '../_services/message.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  messages: Message[];
+  messages: Message[] = [];
   pagination: Pagination;
   container = 'Unread';
   pageNumber = 1;
@@ -21,7 +21,6 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMessages();
-    console.log(this.messages)
   }
 
   loadMessages() {
@@ -40,7 +39,7 @@ export class MessagesComponent implements OnInit {
           this.messages.splice(this.messages.findIndex(m => m.id === id), 1);
         })
       }
-    });
+    })
 
   }
 
@@ -48,4 +47,5 @@ export class MessagesComponent implements OnInit {
     this.pageNumber = event.page;
     this.loadMessages();
   }
+
 }
